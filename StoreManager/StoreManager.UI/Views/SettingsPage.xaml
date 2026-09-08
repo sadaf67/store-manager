@@ -1,0 +1,85 @@
+﻿<Page x:Class="StoreManager.UI.Views.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource BackgroundBrush}" FontFamily="Vazir, Segoe UI">
+    <ScrollViewer Margin="16">
+        <StackPanel MaxWidth="600">
+            <Border Style="{StaticResource Card}" Margin="0,0,0,16">
+                <StackPanel>
+                    <TextBlock Text="اطلاعات فروشگاه" FontSize="15" FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryBrush}" Margin="0,0,0,16"/>
+
+                    <TextBlock Text="نام فروشگاه" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtStoreName" Margin="0,0,0,12"/>
+
+                    <TextBlock Text="نوع صنف" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="cbStoreType" Margin="0,0,0,12" IsEditable="True">
+                        <ComboBoxItem Content="سوپرمارکت و مواد غذایی"/>
+                        <ComboBoxItem Content="پوشاک و منسوجات"/>
+                        <ComboBoxItem Content="لوازم خانگی"/>
+                        <ComboBoxItem Content="الکترونیک و موبایل"/>
+                        <ComboBoxItem Content="داروخانه"/>
+                        <ComboBoxItem Content="آرایشی و بهداشتی"/>
+                        <ComboBoxItem Content="کتاب و لوازم التحریر"/>
+                        <ComboBoxItem Content="ساختمانی و یراق‌آلات"/>
+                        <ComboBoxItem Content="خودرو و لوازم یدکی"/>
+                        <ComboBoxItem Content="رستوران و کافه"/>
+                        <ComboBoxItem Content="تعمیرگاه"/>
+                        <ComboBoxItem Content="عمومی"/>
+                    </ComboBox>
+
+                    <TextBlock Text="نام صاحب کسب‌وکار" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtOwner" Margin="0,0,0,12"/>
+
+                    <TextBlock Text="تلفن" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtPhone" Margin="0,0,0,12"/>
+
+                    <TextBlock Text="آدرس" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtAddress" Height="60" TextWrapping="Wrap" Margin="0,0,0,12"/>
+
+                    <TextBlock Text="شناسه مالیاتی" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtTaxNo" Margin="0,0,0,12"/>
+
+                    <TextBlock Text="نرخ مالیات (%)" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtTaxRate" Margin="0,0,0,12"/>
+
+                    <TextBlock Text="متن پاورقی فاکتور" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtFooter" Height="50" TextWrapping="Wrap" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="chkPrint" Content="چاپ خودکار بعد از ثبت فاکتور" Margin="0,0,0,8"/>
+                    <CheckBox x:Name="chkLowStock" Content="نمایش هشدار کمبود موجودی" IsChecked="True"/>
+
+                    <!-- دکمه‌های عملیاتی -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+
+                        <!-- دکمه نمایش QR Code فروشگاه - برای ارائه به مشتریان -->
+                        <Button Content="📱 QR Code فروشگاه"
+                                Width="160" Height="36"
+                                Margin="0,0,8,0"
+                                Background="#FF6F00" Foreground="White"
+                                BorderThickness="0" Cursor="Hand"
+                                FontFamily="Vazir, Segoe UI" FontSize="13"
+                                Click="BtnShowQR_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                            CornerRadius="6" Padding="12,6">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#F57C00"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button Style="{StaticResource SuccessButton}" Content="ذخیره تنظیمات"
+                                Width="160" Click="BtnSave_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

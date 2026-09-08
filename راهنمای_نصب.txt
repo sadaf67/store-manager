@@ -1,0 +1,82 @@
+========================================
+  سیستم مدیریت فروشگاه - راهنمای نصب
+========================================
+
+پیش‌نیازها:
+-----------
+1. Visual Studio 2022 (Community یا بالاتر)
+   دانلود: https://visualstudio.microsoft.com/
+   در هنگام نصب، workload زیر را انتخاب کنید:
+   ✔ .NET Desktop Development
+
+2. SQL Server (هر نسخه‌ای)
+   - SQL Server Express (رایگان): https://www.microsoft.com/en-us/sql-server/sql-server-downloads
+   - یا SQL Server LocalDB (با Visual Studio نصب می‌شود)
+
+3. .NET 6.0 SDK (معمولاً با VS نصب می‌شود)
+
+========================================
+مراحل راه‌اندازی:
+========================================
+
+مرحله ۱: باز کردن پروژه
+------------------------
+فایل زیر را در Visual Studio باز کنید:
+  D:\فروشگاه ویندوز\StoreManager\StoreManager.sln
+
+مرحله ۲: تنظیم Connection String
+----------------------------------
+فایل زیر را باز کنید:
+  StoreManager.UI\App.config
+
+مقدار connectionString را بر اساس SQL Server خود تنظیم کنید:
+
+برای SQL Server Express:
+  Server=.\SQLEXPRESS;Database=StoreManagerDB;Integrated Security=True;TrustServerCertificate=True;
+
+برای SQL Server LocalDB:
+  Server=(localdb)\MSSQLLocalDB;Database=StoreManagerDB;Integrated Security=True;
+
+برای SQL Server با یوزر و پسورد:
+  Server=.;Database=StoreManagerDB;User Id=sa;Password=YourPassword;TrustServerCertificate=True;
+
+مرحله ۳: Build و اجرا
+-----------------------
+1. در Visual Studio: Ctrl+Shift+B (Build Solution)
+2. F5 برای اجرا
+
+دیتابیس به طور خودکار ساخته می‌شود!
+
+========================================
+اولین اجرا:
+========================================
+
+1. به بخش «تنظیمات» بروید
+2. نام فروشگاه و نوع صنف را وارد کنید
+3. به بخش «کالا و موجودی» بروید و کالاهای خود را اضافه کنید
+4. شروع به فروش کنید!
+
+========================================
+ساختار پروژه:
+========================================
+
+StoreManager.Models  - مدل‌های داده
+StoreManager.DAL     - دسترسی به دیتابیس
+StoreManager.BLL     - منطق کسب‌وکار
+StoreManager.UI      - رابط کاربری WPF
+
+========================================
+قابلیت‌ها:
+========================================
+
+✔ مدیریت کالا با دسته‌بندی
+✔ فروش و خرید با فاکتور
+✔ مدیریت موجودی (ورود/خروج خودکار)
+✔ مدیریت مشتریان و بدهکاران
+✔ گزارش فروش، سود، کم‌موجودی
+✔ خروجی CSV
+✔ داشبورد آماری
+✔ پشتیبانی از همه صنف‌ها
+✔ رابط کاربری فارسی (راست به چپ)
+
+========================================

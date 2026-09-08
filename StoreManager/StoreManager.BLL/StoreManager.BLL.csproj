@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StoreManager.DAL\StoreManager.DAL.csproj"/>
+    <ProjectReference Include="..\StoreManager.Models\StoreManager.Models.csproj"/>
+  </ItemGroup>
+</Project>

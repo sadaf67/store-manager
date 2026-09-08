@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>StoreManager</AssemblyName>
+    <RootNamespace>StoreManager.UI</RootNamespace>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StoreManager.BLL\StoreManager.BLL.csproj"/>
+    <ProjectReference Include="..\StoreManager.DAL\StoreManager.DAL.csproj"/>
+    <ProjectReference Include="..\StoreManager.Models\StoreManager.Models.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0"/>
+    <!-- کتابخانه تولید QR Code - رایگان و بدون وابستگی خارجی -->
+    <PackageReference Include="QRCoder" Version="1.6.0"/>
+  </ItemGroup>
+</Project>

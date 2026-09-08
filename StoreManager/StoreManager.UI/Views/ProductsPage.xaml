@@ -1,0 +1,40 @@
+﻿<Page x:Class="StoreManager.UI.Views.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource BackgroundBrush}" FontFamily="Vazir, Segoe UI">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Toolbar -->
+        <Border Grid.Row="0" Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel Orientation="Horizontal">
+                <Button Style="{StaticResource PrimaryButton}" Content="+ افزودن کالا" Click="BtnAdd_Click"/>
+                <TextBox x:Name="txtSearch" Width="200" Margin="10,0,0,0"
+                         Tag="جستجو..." TextChanged="TxtSearch_TextChanged"/>
+                <ComboBox x:Name="cbCategory" Width="150" Margin="8,0,0,0"
+                          SelectionChanged="CbCategory_SelectionChanged"
+                          DisplayMemberPath="Name" SelectedValuePath="Id"/>
+                <Button Style="{StaticResource DangerButton}" Content="حذف"
+                        Margin="8,0,0,0" Click="BtnDelete_Click"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Grid -->
+        <Border Grid.Row="1" Style="{StaticResource Card}">
+            <DataGrid x:Name="dgProducts" MouseDoubleClick="DgProducts_DoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="کد" Binding="{Binding Code}" Width="80"/>
+                    <DataGridTextColumn Header="نام کالا" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="دسته‌بندی" Binding="{Binding CategoryName}" Width="120"/>
+                    <DataGridTextColumn Header="واحد" Binding="{Binding Unit}" Width="60"/>
+                    <DataGridTextColumn Header="قیمت خرید" Binding="{Binding BuyPrice, StringFormat={}{0:N0}}" Width="100"/>
+                    <DataGridTextColumn Header="قیمت فروش" Binding="{Binding SellPrice, StringFormat={}{0:N0}}" Width="100"/>
+                    <DataGridTextColumn Header="موجودی" Binding="{Binding Stock, StringFormat={}{0:N2}}" Width="80"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Page>

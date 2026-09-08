@@ -1,0 +1,75 @@
+﻿<Window x:Class="StoreManager.UI.Views.ProductDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="اطلاعات کالا" Width="450" Height="500"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize" FontFamily="Vazir, Segoe UI">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="کد کالا" Margin="0,0,0,4"/>
+            <TextBox x:Name="txtCode" Margin="0,0,0,12"/>
+
+            <TextBlock Text="نام کالا *" Margin="0,0,0,4"/>
+            <TextBox x:Name="txtName" Margin="0,0,0,12"/>
+
+            <TextBlock Text="دسته‌بندی" Margin="0,0,0,4"/>
+            <ComboBox x:Name="cbCategory" Margin="0,0,0,12"
+                      DisplayMemberPath="Name" SelectedValuePath="Id"/>
+
+            <TextBlock Text="واحد" Margin="0,0,0,4"/>
+            <ComboBox x:Name="cbUnit" Margin="0,0,0,12" IsEditable="True">
+                <ComboBoxItem Content="عدد"/>
+                <ComboBoxItem Content="کیلوگرم"/>
+                <ComboBoxItem Content="گرم"/>
+                <ComboBoxItem Content="لیتر"/>
+                <ComboBoxItem Content="متر"/>
+                <ComboBoxItem Content="جفت"/>
+                <ComboBoxItem Content="بسته"/>
+                <ComboBoxItem Content="کارتن"/>
+            </ComboBox>
+
+            <Grid Margin="0,0,0,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="قیمت خرید (ریال)" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtBuyPrice"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="قیمت فروش (ریال)" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtSellPrice"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="موجودی" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtStock"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="حداقل موجودی" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtMinStock"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,16,0,0">
+            <Button Style="{StaticResource SuccessButton}" Content="ذخیره" Width="100" Click="BtnSave_Click"/>
+            <Button Content="انصراف" Width="80" Margin="8,0,0,0" Click="BtnCancel_Click"
+                    Background="#EEEEEE" Foreground="{StaticResource TextBrush}"
+                    BorderThickness="0" Padding="8,6" Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</Window>

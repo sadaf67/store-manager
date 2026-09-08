@@ -1,0 +1,72 @@
+<Window x:Class="StoreManager.UI.Views.StoreQRWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="QR Code فروشگاه" Width="320" Height="400"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        FontFamily="Vazir, Segoe UI">
+    <StackPanel Margin="24" HorizontalAlignment="Center">
+
+        <!-- عنوان -->
+        <TextBlock Text="QR Code اطلاعات تماس فروشگاه"
+                   FontSize="14" FontWeight="Bold"
+                   Foreground="#1565C0" HorizontalAlignment="Center"
+                   Margin="0,0,0,6"/>
+
+        <!-- توضیح -->
+        <TextBlock Text="مشتریان با اسکن این کد می‌توانند&#10;اطلاعات تماس فروشگاه را ذخیره کنند"
+                   FontSize="11" Foreground="#757575"
+                   TextAlignment="Center" TextWrapping="Wrap"
+                   Margin="0,0,0,16"/>
+
+        <!-- تصویر QR Code -->
+        <Border BorderBrush="#E0E0E0" BorderThickness="1"
+                CornerRadius="10" Padding="12"
+                HorizontalAlignment="Center">
+            <!-- RenderOptions.BitmapScalingMode="NearestNeighbor" برای جلوگیری از blur شدن QR -->
+            <Image x:Name="imgQR" Width="180" Height="180"
+                   RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        </Border>
+
+        <!-- نام فروشگاه زیر QR -->
+        <TextBlock x:Name="txtName" FontSize="13" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,12,0,2"/>
+        <TextBlock x:Name="txtPhone" FontSize="11" Foreground="#616161"
+                   HorizontalAlignment="Center"/>
+
+        <!-- دکمه‌ها -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <!-- ذخیره QR به عنوان تصویر -->
+            <Button Content="💾 ذخیره PNG" Click="BtnSave_Click"
+                    Width="110" Height="34"
+                    Background="#2E7D32" Foreground="White"
+                    BorderThickness="0" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="10,6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#388E3C"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="✕ بستن" Click="BtnClose_Click"
+                    Width="80" Height="34" Margin="8,0,0,0"
+                    Background="#757575" Foreground="White"
+                    BorderThickness="0" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="10,6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
+    </StackPanel>
+</Window>
